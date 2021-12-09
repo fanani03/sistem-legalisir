@@ -3,7 +3,6 @@
 // koneksi ke database  dengan parameter nama host, username, paswd, nama dabatase
 $koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
 
-
 // proses mengambil tiap isi di database
 function query($query) {
     global $koneksi;
@@ -39,11 +38,7 @@ function ajukan($data) {
             ";
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
-    
-
-
 }
-
 
 function upload() {
     // ambil isi dari $_FILES masukkan ke variabel
@@ -63,9 +58,7 @@ function upload() {
     // lolos pengecekan 
     move_uploaded_file($tmpName, 'berkas/'.$namaFile);
     return $namaFile;
-    
 }
-
 
 function simpan($data) {
     global $koneksi;
@@ -93,9 +86,7 @@ function simpan($data) {
             ";
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
-    
 }
-
 
 function upload_simpan() {
     // ambil isi dari $_FILES masukkan ke variabel
@@ -115,9 +106,7 @@ function upload_simpan() {
     // lolos pengecekan 
     move_uploaded_file($tmpName, 'berkas_jadi/'.$namaFile);
     return $namaFile;
-    
 }
-
 
 function hapus($id) {
     global $koneksi;
@@ -132,7 +121,6 @@ function hapus_transaksi($id) {
     //mengembalikan nilai apakah ada perubahan atau tidak
     return mysqli_affected_rows($koneksi);
 }
-
 
 function tambah($data) {
     global $koneksi;
@@ -152,7 +140,6 @@ function tambah($data) {
     //mengembalikan nilai apakah ada perubahan atau tidak
     return mysqli_affected_rows($koneksi);
 }
-
 
 function update($data){
     global $koneksi;
@@ -176,21 +163,16 @@ function update($data){
     return mysqli_affected_rows($koneksi);    
 }
 
-
-
 function cari($keyword) {
     $query = "SELECT * FROM tbl_transaksi
-              WHERE
-              nama LIKE '%$keyword%' OR
-              nama_file LIKE '%$keyword%' OR
-              nis LIKE '%$keyword%' OR
-              berkas LIKE '%$keyword%'
+                WHERE
+                nama LIKE '%$keyword%' OR
+                nama_file LIKE '%$keyword%' OR
+                nis LIKE '%$keyword%' OR
+                berkas LIKE '%$keyword%'
             ";
 
     return query($query);
 }
 
-
 ?>
-
-

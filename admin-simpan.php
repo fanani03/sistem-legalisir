@@ -6,24 +6,21 @@ session_start();
 if (!isset($_SESSION["login"]) ) {
     $_SESSION["logged_in_user"] = '';
     if ($_SESSION["logged_in_user"] != 'admin') {
-        header("Location: login.php");
+        header("Location: index.php");
         exit;
     }
 } elseif($_SESSION["logged_in_user"] != 'admin') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
-
 
 require 'functions.php';
 
 $koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
 
-
 $data = query("SELECT tbl_simpan.*, tbl_user.nama
                     FROM tbl_simpan INNER JOIN tbl_user ON
                     tbl_simpan.nis=tbl_user.nis");
-
 ?>
 
 <html lang="en">
@@ -36,10 +33,7 @@ $data = query("SELECT tbl_simpan.*, tbl_user.nama
 <body>
     <h1>List Sertifikat</h1>
     
-
     <table border="5" cellpadding="10" cellspacing="1">
-
-
     <tr>
         <td>No.</td>
         <td>NIS</td>
@@ -47,7 +41,6 @@ $data = query("SELECT tbl_simpan.*, tbl_user.nama
         <td>Nama File</td>
         <td>No Sertifikat</td>
         <td>Berkas</td>
-
     </tr>
 
     <?php $angka = 1; ?>
@@ -60,6 +53,7 @@ $data = query("SELECT tbl_simpan.*, tbl_user.nama
         <td><?= $row["no_sertifikat"] ?></td>
         <td><?= $row["berkas"] ?></td>
     </tr>
+    
     <?php $angka++; ?>
     <?php endforeach; ?>
     </table>

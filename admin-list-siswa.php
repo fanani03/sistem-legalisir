@@ -6,14 +6,13 @@ session_start();
 if (!isset($_SESSION["login"]) ) {
     $_SESSION["logged_in_user"] = '';
     if ($_SESSION["logged_in_user"] != 'admin') {
-        header("Location: login.php");
+        header("Location: index.php");
         exit;
     }
 } elseif($_SESSION["logged_in_user"] != 'admin') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
-
 
 //$user = $_SESSION["logged_in_user"];
 require 'functions.php';

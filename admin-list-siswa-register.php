@@ -2,17 +2,15 @@
 
 session_start();
 
-
-
 // set yang bisa masuk hanya admin
 if (!isset($_SESSION["login"]) ) {
     $_SESSION["logged_in_user"] = '';
     if ($_SESSION["logged_in_user"] != 'admin') {
-        header("Location: login.php");
+        header("Location: index.php");
         exit;
     }
 } elseif($_SESSION["logged_in_user"] != 'admin') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
 
@@ -21,8 +19,6 @@ require 'functions.php';
 $koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
 
 // cek apakah tombol submit sudah ditekan
-
-
 if (isset($_POST["submit"])) {
 
     //cek apakah data berhasil ditambahkan
@@ -36,12 +32,10 @@ if (isset($_POST["submit"])) {
         echo "<script>
                     alert('Data gagal dimasukkan')
                     document.location.href = 'admin-list-siswa.php';
-              </script>
+                </script>
             ";
     }
 }
-
-
 ?>
 
 <html lang="en">

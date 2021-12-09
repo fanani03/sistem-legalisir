@@ -1,18 +1,16 @@
 <?php
 
-
-
 session_start();
 
 // set yang bisa masuk hanya admin
 if (!isset($_SESSION["login"]) ) {
     $_SESSION["logged_in_user"] = '';
     if ($_SESSION["logged_in_user"] != 'admin') {
-        header("Location: login.php");
+        header("Location: index.php");
         exit;
     }
 } elseif($_SESSION["logged_in_user"] != 'admin') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
 
@@ -31,7 +29,7 @@ if ( $_GET['stat'] == 'pending' ) {
             alert('Perubahan Gagal');
             document.location.href = 'admin-dashboard.php'
             </script>";
-           ;
+        ;
         }else {
             echo "<script>
             alert('Perubahan Berhasil');
@@ -47,7 +45,7 @@ if ( $_GET['stat'] == 'pending' ) {
             alert('Perubahan Gagal');
             document.location.href = 'admin-dashboard.php'
             </script>";
-           ;
+        ;
         }else {
             echo "<script>
             alert('Perubahan Berhasil');

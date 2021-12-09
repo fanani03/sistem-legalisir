@@ -6,22 +6,19 @@ session_start();
 if (!isset($_SESSION["login"]) ) {
     $_SESSION["logged_in_user"] = '';
     if ($_SESSION["logged_in_user"] != 'admin') {
-        header("Location: login.php");
+        header("Location: index.php");
         exit;
     }
 } elseif($_SESSION["logged_in_user"] != 'admin') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
-
 
 require 'functions.php';
 
 $koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
 
 if ( isset($_POST["simpan"]) ) {
-
-
     if (update($_POST)) {
         echo "<script>
         alert('Berkas Berhasil Disimpan!!!');
@@ -52,9 +49,7 @@ $d = mysqli_fetch_array($data_trans);
     <a href="admin-dashboard.php">Dashboard</a><br>
     <form action="" method="post" enctype="multipart/form-data">
         <ul>
-            
-                <input type="hidden" name="idtrans" id="idtrans" value="<?= $d['id_transaksi'];?>"></input>
-        
+            <input type="hidden" name="idtrans" id="idtrans" value="<?= $d['id_transaksi'];?>"></input>
             <li>
                 <label for="nis">NIS : </label>
                 <input type="text" name="nis" id="nis" value="<?php echo $d['nis']; ?>" readonly></input>
