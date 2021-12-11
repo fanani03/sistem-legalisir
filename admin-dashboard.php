@@ -112,8 +112,9 @@ if (isset($_POST["cari"])) {
                         <!-- Search -->
                         <!-- ============================================================== -->
                         <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search">
-                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                            <form action="" method="post" class="app-search">
+                                <input type="text" name="keyword" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                                <button type="submit" name="cari"></button>
                             </form>
                         </li>
                     </ul>
@@ -143,20 +144,20 @@ if (isset($_POST["cari"])) {
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                        <li> <a class="waves-effect waves-dark" href="admin-dashboard.php" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a>
+                        <li> <a class="waves-effect waves-dark" href="admin-list-siswa.php" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Data Siswa</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="table-basic.html" aria-expanded="false"><i class="mdi mdi-table"></i><span class="hide-menu">Basic Table</span></a>
+                        <li> <a class="waves-effect waves-dark" href="admin-simpan.php" aria-expanded="false"><i class="mdi mdi-certificate"></i><span class="hide-menu">Data Sertifikat</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a>
+                        <!-- <li> <a class="waves-effect waves-dark" href="icon-material.html" aria-expanded="false"><i class="mdi mdi-emoticon"></i><span class="hide-menu">Icons</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank Page</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Error 404</span></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -196,61 +197,70 @@ if (isset($_POST["cari"])) {
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-    <h3>
-        <nav>
-        <a href="admin-list-siswa.php">Siswa</a>|
-        <a href="admin-simpan.php">List Sertifikat</a>|
-        <a href="admin-logout.php">Logout</a>
-        </nav>
-        <h2>List Daftar Transaksi Siswa</h2>
-        <form action="" method="post">
-        <input type="text" name="keyword" size="30" placeholder="masukkan keyword pencarian...">
-        <button type="submit" name="cari">CARI</button><br><br>
-        </form>
-        <table border="5" cellpadding="10" cellspacing="1">
-            <tr>
-                <td>No.</td>
-                <td>NIS</td>
-                <td>Nama</td>
-                <td>Nama File</td>
-                <td>Berkas</td>
-                <td>Status</td>
-                <td>Download</td>
-                <td>Aksi</td>
-            </tr>
-            <tr>
-            <?php $angka = 1; ?>
-            <?php foreach($pengajuan as $row): ?>
-            <td><?= $angka ?></td>
-            <td><?php $nis= $row["nis"] ?><?= $row["nis"] ?></td>
-            <td><?= $row["nama"] ?></td>
-            <td><?= $row["nama_file"] ?></td>
-            <td><?= $row["berkas"] ?></td>
-            <td><?= $row["status"] ?></td>
-            <td><a href="download.php?berkas=<?=$row['berkas']?>&nama=<?=$row['nama']?>">Download</a></td>
-            
-            <td>
-            <?php
-                if ($row['status'] == 'pending') {
-                    echo "<a href='update-status.php?id=$row[id_transaksi]&stat=pending'>Proses </a>";
-                    echo "<a href='update-status.php?id=$row[id_transaksi]&stat=tolak'>| Tolak</a>";
-                } 
-                else if ($row['status'] == 'proses') {
-                    echo "<a href='#'>Proses </a>";
-                    echo "<a href='update-status.php?id=$row[id_transaksi]&stat=tolak'>| Tolak</a>";
-                    echo "<a href='admin-kirim-file.php?id=$row[id_transaksi]'>| Kirim File </a>";
-                } else {
-                    echo "Proses | Tolak";
-                }
-            ?>
-
-            </td>
-            </tr>
-            <?php $angka++;?>
-            <?php endforeach;?>
-        </table>
-    </h3>
-    </div>
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">Data Transaksi Siswa</h4>
+                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>NIS</th>
+                                                <th>Nama</th>
+                                                <th>Nama File</th>
+                                                <th>Berkas</th>
+                                                <th>Status</th>
+                                                <th>Download</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <?php $angka = 1; ?>
+                                        <?php foreach($pengajuan as $row): ?>
+                                        <tbody>
+                                            <tr>
+                                                <td><?= $angka ?></td>
+                                                <td><?php $nis= $row["nis"] ?><?= $row["nis"] ?></td>
+                                                <td><?= $row["nama"] ?></td>
+                                                <td><?= $row["nama_file"] ?></td>
+                                                <td><?= $row["berkas"] ?></td>
+                                                <td><?= $row["status"] ?></td>
+                                                <td><a href="download.php?berkas=<?=$row['berkas']?>&nama=<?=$row['nama']?>">Download</a></td>
+                                                <td>
+                                                    <?php
+                                                        if ($row['status'] == 'pending') {
+                                                            echo "<a href='update-status.php?id=$row[id_transaksi]&stat=pending'>Proses </a>";
+                                                            echo "<a href='update-status.php?id=$row[id_transaksi]&stat=tolak'>| Tolak</a>";
+                                                        } 
+                                                        else if ($row['status'] == 'proses') {
+                                                            echo "<a href='#'>Proses </a>";
+                                                            echo "<a href='update-status.php?id=$row[id_transaksi]&stat=tolak'>| Tolak</a>";
+                                                            echo "<a href='admin-kirim-file.php?id=$row[id_transaksi]'>| Kirim File </a>";
+                                                        } else {
+                                                            echo "Proses | Tolak";
+                                                        }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <?php $angka++;?>
+                                        <?php endforeach;?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

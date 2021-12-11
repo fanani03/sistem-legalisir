@@ -33,7 +33,6 @@ if ( isset($_POST["login"]) ) {
     }
     $error = true;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -118,13 +117,9 @@ if ( isset($_POST["login"]) ) {
                         <div class="card-block">
                             <div class="row">
                                 <div class="col-12">
-                                <form action="" method="POST">
-                                        <div class="row mb-3">
-                                            <div class="col-4"></div>
-                                            <div class="col-4">
-                                                <p style="font-size: 2rem; font-weight: 800; text-align:center;">Login</p>
-                                            </div>
-                                            <div class="col-4"></div>
+                                    <form action="" method="POST">
+                                        <div class="col-12">
+                                            <p style="font-size: 2rem; font-weight: 800; text-align:center; margin-bottom: 20px;">Login</p>
                                         </div>
                                         <div class="form-group">
                                             <input class="form-control" type="text" name="username" id="username" placeholder="Username" required>
@@ -135,8 +130,9 @@ if ( isset($_POST["login"]) ) {
                                         <div class="form-group">
                                             <button name="login" value="Login" class="btn btn-info btn-lg btn-block">Login</button>
                                         </div>
-                                        <p style="text-align:center;"><a href="#" onclick="javascript:swal('Tetap Tenang', 'Coba ingat terlebih dahulu password yang anda gunakan', 'info');return false;">Lupa Password</a></p>
-                                        
+                                        <p style="text-align:center;">
+                                            <a href="#" onclick="javascript:swal('Tetap Tenang', 'Coba ingat terlebih dahulu password yang anda gunakan', 'info');return false;">Lupa Password</a>
+                                        </p>
                                     </form>
                                 </div>
                             </div>
