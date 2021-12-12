@@ -97,16 +97,13 @@ if (isset($_POST["submit"])) {
                 <!-- ============================================================== -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon --><b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-
-                            <!-- Light Logo icon -->
+                        <!-- Logo icon -->
+                        <b>
+                            <!-- <i class="wi wi-sunset"></i> -->
                             <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                         </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-
-                            <!-- Light Logo text -->
+                        <!-- Logo text -->
+                        <span>
                             <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
                         </span>
                     </a>
@@ -210,38 +207,60 @@ if (isset($_POST["submit"])) {
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-    <h1>Tambah Data Siswa</h1>
-    <ul>
-        <form method="post" action="" enctype="multipart/form-data">
-        <li>
-            <label for="nis">NIS : </label>
-            <input type="text" name="nis" id="nis" required>
-        </li>
-        <li>
-            <label for="username">Username : </label>
-            <input type="text" name="username" id="username" required>
-        </li>
-        <li>
-            <label for="password">Password : </label>
-            <input type="password" name="password" id="password" required>
-        </li>
-        <li>
-            <label for="nama">Nama : </label>
-            <input type="text" name="nama" id="nama" required>
-        </li>
-        <li>
-            <label for="alamat">Alamat : </label>
-            <input type="text" name="alamat" id="alamat">      
-        </li>
-        <li>
-            <button type="submit" name="submit">KIRIM!!!</button>
-        </li>
-    <ul>
-</form>
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <form method="post" action="" enctype="multipart/form-data" class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label for="nis" class="col-md-12">Nomor Induk Siswa</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="nis" id="nis" placeholder="Masukkan nomor induk siswa" class="form-control form-control-line" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="username" class="col-md-12">Username</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="username" id="username" placeholder="Masukkan username" class="form-control form-control-line" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="col-md-12">Password</label>
+                                        <div class="col-md-12">
+                                            <input type="password" name="password" id="password" placeholder="Masukkan password" class="form-control form-control-line" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nama" class="col-md-12">Nama Lengkap</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="nama" id="nama" placeholder="Masukkan nama lengkap" class="form-control form-control-line" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="alamat" class="col-md-12">Alamat</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="alamat" id="alamat" placeholder="Masukkan alamat" class="form-control form-control-line" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <button type="submit" name="submit" class="btn btn-success">Tambah Siswa</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
                 </div>
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+            </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

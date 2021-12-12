@@ -82,16 +82,13 @@ $data = query("SELECT tbl_simpan.*, tbl_user.nama
                 <!-- ============================================================== -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon --><b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-
-                            <!-- Light Logo icon -->
+                        <!-- Logo icon -->
+                        <b>
+                            <!-- <i class="wi wi-sunset"></i> -->
                             <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                         </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-
-                            <!-- Light Logo text -->
+                        <!-- Logo text -->
+                        <span>
                             <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
                         </span>
                     </a>
@@ -195,36 +192,52 @@ $data = query("SELECT tbl_simpan.*, tbl_user.nama
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-    <h1>List Sertifikat</h1>
-    
-    <table border="5" cellpadding="10" cellspacing="1">
-    <tr>
-        <td>No.</td>
-        <td>NIS</td>
-        <td>Nama</td>
-        <td>Nama File</td>
-        <td>No Sertifikat</td>
-        <td>Berkas</td>
-    </tr>
-
-    <?php $angka = 1; ?>
-    <tr>
-        <?php foreach($data as $row): ?>
-        <td><?= $angka ?></td>
-        <td><?= $row["nis"] ?></td>
-        <td><?= $row["nama"] ?> </td>
-        <td><?= $row["nama_file"] ?> </td>
-        <td><?= $row["no_sertifikat"] ?></td>
-        <td><?= $row["berkas"] ?></td>
-    </tr>
-
-    <?php $angka++; ?>
-    <?php endforeach; ?>
-    </table>
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">List Sertifikat</h4>
+                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>NIS</th>
+                                                <th>Nama</th>
+                                                <th>Nama File</th>
+                                                <th>No Sertifikat</th>
+                                                <th>Berkas</th>
+                                            </tr>
+                                        </thead>
+                                        <?php $angka = 1; ?>
+                                        <?php foreach($data as $row): ?>
+                                        <tbody>
+                                            <tr>
+                                                <td><?= $angka ?></td>
+                                                <td><?= $row["nis"] ?></td>
+                                                <td><?= $row["nama"] ?> </td>
+                                                <td><?= $row["nama_file"] ?> </td>
+                                                <td><?= $row["no_sertifikat"] ?></td>
+                                                <td><?= $row["berkas"] ?></td>
+                                            </tr>
+                                        </tbody>
+                                        <?php $angka++; ?>
+                                        <?php endforeach; ?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+            </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

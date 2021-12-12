@@ -78,16 +78,13 @@ $pengajuan = query("SELECT * FROM tbl_user");
                 <!-- ============================================================== -->
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
-                        <!-- Logo icon --><b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-
-                            <!-- Light Logo icon -->
+                        <!-- Logo icon -->
+                        <b>
+                            <!-- <i class="wi wi-sunset"></i> -->
                             <img src="assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                         </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text --><span>
-
-                            <!-- Light Logo text -->
+                        <!-- Logo text -->
+                        <span>
                             <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
                         </span>
                     </a>
@@ -191,44 +188,54 @@ $pengajuan = query("SELECT * FROM tbl_user");
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-    <header>
-        <h1>List Siswa</h1>
-    </header>
-    <h3>
-        <nav>
-        <a href="admin-dashboard.php">Dashboard</a><br>
-        <a href="admin-list-siswa-register.php">Tambah Siswa</a><br><br>
-        </nav>
-        <table border="5" cellpadding="10" cellspacing="1">
-            <tr>
-                <td>No.</td>
-                <td>NIS</td>
-                <td>Username</td>
-                <td>Nama</td>
-                <td>Alamat</td>
-                <td>Aksi</td>
-            </tr>
-            <tr>
-            <?php $angka = 1; ?>
-            <?php foreach($pengajuan as $row): ?>
-
-            <td><?= $angka ?></td>
-            <td><?= $row["nis"] ?></td>
-            <td><?= $row["username"] ?></td>
-            <td><?= $row["nama"] ?></td>
-            <td><?= $row["alamat"] ?></td>
-            <td> 
-            <a href="hapus-siswa.php?nis=<?=$row['nis']?>" onclick="return confirm('yakin??')";>Hapus</a>
-            </td>
-            <tr>
-            <?php $angka++;?>
-            <?php endforeach;?>
-        </table>
-    </h3>
                 <!-- ============================================================== -->
-                <!-- End PAge Content -->
+                <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">List Siswa</h4>
+                                <h6 class="card-subtitle"><a href="admin-list-siswa-register.php">Tambah Siswa</a></h6>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>NIS</th>
+                                                <th>Username</th>
+                                                <th>Nama</th>
+                                                <th>Alamat</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <?php $angka = 1; ?>
+                                        <?php foreach($pengajuan as $row): ?>
+                                        <tbody>
+                                            <tr>
+                                                <td><?= $angka ?></td>
+                                                <td><?= $row["nis"] ?></td>
+                                                <td><?= $row["username"] ?></td>
+                                                <td><?= $row["nama"] ?></td>
+                                                <td><?= $row["alamat"] ?></td>
+                                                <td> 
+                                                    <a href="hapus-siswa.php?nis=<?=$row['nis']?>" onclick="return confirm('yakin??')";>Hapus</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <?php $angka++; ?>
+                                        <?php endforeach; ?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+            </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->

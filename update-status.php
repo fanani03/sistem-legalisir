@@ -14,12 +14,10 @@ if (!isset($_SESSION["login"]) ) {
     exit;
 }
 
-
 require 'functions.php';
     
 // $sql = mysqli_query($koneksi, "SELECT status FROM tbl_transaksi WHERE id_transaksi = '$_GET[id]'");
 // $sqlCheck = mysqli_fetch_assoc($sql);
-
 
 if ( $_GET['stat'] == 'pending' ) {
     $edit_status = mysqli_query($koneksi, "UPDATE tbl_transaksi SET status ='proses' WHERE id_transaksi = '$_GET[id]'");
@@ -54,6 +52,4 @@ if ( $_GET['stat'] == 'pending' ) {
         }
     }
 }
-
-
 ?>
