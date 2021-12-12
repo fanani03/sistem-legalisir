@@ -76,7 +76,7 @@ $namauser = $_SESSION["logged_in_nama"];
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                         <!-- Logo icon -->
                         <b>
                             <!-- <i class="wi wi-sunset"></i> -->
@@ -141,9 +141,9 @@ $namauser = $_SESSION["logged_in_nama"];
                         </li>
                         <li> <a class="waves-effect waves-dark" href="siswa-pengajuan.php" aria-expanded="false"><i class="mdi mdi-folder-upload"></i><span class="hide-menu">Pengajuan</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="search.php" aria-expanded="false"><i class="mdi mdi-file-find"></i><span class="hide-menu">Cari Sertifikat</span></a>
+                        <!-- <li> <a class="waves-effect waves-dark" href="search.php" aria-expanded="false"><i class="mdi mdi-file-find"></i><span class="hide-menu">Cari Sertifikat</span></a>
                         </li>
-                        <!-- <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
+                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank Page</span></a>
                         </li>
@@ -188,66 +188,73 @@ $namauser = $_SESSION["logged_in_nama"];
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-    <h1>Selamat Datang, <?= $namauser?></h1>
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">Data Berkas</h4>
+                                <!-- <h6 class="card-subtitle">Add class <code>.table</code></h6> -->
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>NIS</th>
+                                                <th>Nama</th>
+                                                <th>Nama Berkas</th>
+                                                <th>Status</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <?php $angka = 1; ?>
+                                        <?php foreach($pengajuan as $row): ?>
+                                        <tbody>
+                                            <tr>
+                                                <td><?= $angka?></td>
+                                                <td><?= $row["nis"] ?></td>
+                                                <td><?= $row["nama"] ?></td>
+                                                <td><?= $row["nama_file"] ?></td>
+                                                <td><?= $row["status"] ?></td>
 
-    <h3>
-        <nav>
-        <a href="siswa-profil.php?nis=<?= $user?>">Profil</a>|
-        <a href="siswa-pengajuan.php">Pengajuan</a>|
-        <a href="siswa-logout.php">Logout</a>
-        </nav><br>
+                                                <?php
+                                                    if($row['status'] == 'selesai'){
+                                                        //mendapatkan database dari simpan dimana diambil tbl transaksi
+                                                        $sql = mysqli_query($koneksi, "SELECT tbl_simpan.*, tbl_transaksi.id_transaksi FROM tbl_simpan 
+                                                        JOIN tbl_transaksi ON tbl_transaksi.id_transaksi=tbl_simpan.id_transaksi 
+                                                        ");
+                                                    //var_dump($row['id_transaksi']);
 
-        <table border="5" cellpadding="10" cellspacing="1">
-            <tr>
-                <td>No.</td>
-                <td>NIS</td>
-                <td>Nama</td>
-                <td>Nama Berkas</td>
-                <td>Status</td>
-                <td>Aksi</td>
-            </tr>
-            <tr>
-            <?php $angka = 1; ?>
-            
-            <?php foreach($pengajuan as $row): ?>
-                
-        
-                <td><?= $angka?></td>
+                                                    //mendapatkan berkas yang diambil
+                                                    foreach($sql as $data) :
+                                                        if ($data['id_transaksi'] == $row['id_transaksi']) {
+                                                            //var_dump($data);
+                                                            echo "<td><a href='download.php?berkas=$data[berkas]&nama=$user'>Download | </a>";
+                                                            echo "<a href='hapus-transaksi.php?id=$row[id_transaksi]' onclick='return confirm('yakin??')' style='color:red;'>Hapus</a></td>";
+                                                        }
+                                                    endforeach;
+                                                    } else {
+                                                        //var_dump($row);die;
+                                                        echo "<td><a href='hapus-transaksi.php?id=$row[id_transaksi]' onclick='return confirm('yakin??')' style='color:red;'>Batalkan</a></td>";
+                                                    }
+                                                ?>
 
-                <td><?= $row["nis"] ?></td>
-                <td><?= $row["nama"] ?></td>
-                <td><?= $row["nama_file"] ?></td>
-                <td><?= $row["status"] ?></td>
-            
-                <?php
-                    if($row['status'] == 'selesai'){
-                        //mendapatkan database dari simpan dimana diambil tbl transaksi
-                        $sql = mysqli_query($koneksi, "SELECT tbl_simpan.*, tbl_transaksi.id_transaksi FROM tbl_simpan 
-                        JOIN tbl_transaksi ON tbl_transaksi.id_transaksi=tbl_simpan.id_transaksi 
-                        ");
-                    //var_dump($row['id_transaksi']);
-
-                    //mendapatkan berkas yang diambil
-                    foreach($sql as $data) :
-                        if ($data['id_transaksi'] == $row['id_transaksi']) {
-                            //var_dump($data);
-                            echo "<td><a href='download.php?berkas=$data[berkas]&nama=$user'>Download | </a>";
-                            echo "<a href='hapus-transaksi.php?id=$row[id_transaksi]' onclick='return confirm('yakin??')' style='color:red;'>Hapus</a></td>";
-                        }
-                    endforeach;
-                    }
-                else{
-                    //var_dump($row);die;
-                    echo "<td><a href='hapus-transaksi.php?id=$row[id_transaksi]' onclick='return confirm('yakin??')' style='color:red;'>Batalkan</a></td>";
-                }
-                ?>
-        
-                <tr>
-
-            <?php $angka++;?>
-            <?php endforeach;?>
-        </table>
-    </h3>
+                                            </tr>
+                                        </tbody>
+                                        <?php $angka++;?>
+                                        <?php endforeach;?>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

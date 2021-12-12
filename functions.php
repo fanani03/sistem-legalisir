@@ -43,7 +43,7 @@ function ajukan($data) {
 function upload() {
     // ambil isi dari $_FILES masukkan ke variabel
     $namaFile = $_FILES['berkas']['name'];
-    $ukuranFile =$_FILES['berkas']['size'];
+    $ukuranFile = $_FILES['berkas']['size'];
     $error = $_FILES['berkas']['error'];
     $tmpName = $_FILES['berkas']['tmp_name'];
 

@@ -77,7 +77,7 @@ $pengajuan = query("SELECT * FROM tbl_user");
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <!-- Logo icon -->
                         <b>
                             <!-- <i class="wi wi-sunset"></i> -->

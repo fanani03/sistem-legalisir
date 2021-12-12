@@ -95,7 +95,7 @@ $d = mysqli_fetch_array($data_trans);
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <!-- Logo icon -->
                         <b>
                             <!-- <i class="wi wi-sunset"></i> -->

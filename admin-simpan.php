@@ -81,7 +81,7 @@ $data = query("SELECT tbl_simpan.*, tbl_user.nama
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="#">
                         <!-- Logo icon -->
                         <b>
                             <!-- <i class="wi wi-sunset"></i> -->

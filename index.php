@@ -97,8 +97,11 @@ if ( isset($_POST["login"]) ) {
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <div class="row page-titles">
-                <div class="col-md-5 align-self-center">
+                <div class="col-md-5 col-8 align-self-center">
                     <h3 class="text-themecolor">Legalisir App</h3>
+                </div>
+                <div class="col-md-7 col-4 align-self-center">
+                    <a href="search.php" class="btn waves-effect waves-light btn-info pull-right hidden-sm-down">Cek Sertifikat</a>
                 </div>
             </div>
             <!-- ============================================================== -->

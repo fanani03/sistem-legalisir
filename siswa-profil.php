@@ -77,7 +77,7 @@ $row = mysqli_fetch_assoc($data);
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                         <!-- Logo icon -->
                         <b>
                             <!-- <i class="wi wi-sunset"></i> -->
@@ -142,9 +142,9 @@ $row = mysqli_fetch_assoc($data);
                         </li>
                         <li> <a class="waves-effect waves-dark" href="siswa-pengajuan.php" aria-expanded="false"><i class="mdi mdi-folder-upload"></i><span class="hide-menu">Pengajuan</span></a>
                         </li>
-                        <li> <a class="waves-effect waves-dark" href="search.php" aria-expanded="false"><i class="mdi mdi-file-find"></i><span class="hide-menu">Cari Sertifikat</span></a>
+                        <!-- <li> <a class="waves-effect waves-dark" href="search.php" aria-expanded="false"><i class="mdi mdi-file-find"></i><span class="hide-menu">Cari Sertifikat</span></a>
                         </li>
-                        <!-- <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
+                        <li> <a class="waves-effect waves-dark" href="map-google.html" aria-expanded="false"><i class="mdi mdi-earth"></i><span class="hide-menu">Google Map</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Blank Page</span></a>
                         </li>
