@@ -181,8 +181,7 @@ $namauser = $_SESSION["logged_in_nama"];
                         <h3 class="text-themecolor">Dashboard</h3>
                     </div>
                     <div class="col-md-7 col-4 align-self-center">
-                        <form action="" method="POST">
-                            <a href="siswa-logout.php" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Logout</a>
+                        <a href="siswa-logout.php" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Logout</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->

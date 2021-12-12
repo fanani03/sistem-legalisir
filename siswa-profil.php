@@ -182,21 +182,57 @@ $row = mysqli_fetch_assoc($data);
                         <h3 class="text-themecolor">Profil Siswa</h3>
                     </div>
                     <div class="col-md-7 col-4 align-self-center">
-                        <form action="" method="POST">
-                            <a href="siswa-logout.php" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Logout</a>
+                        <a href="siswa-logout.php" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Logout</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
-    <h1>Profil Siswa</h1>
-    <h3>
-        Username : <?= $row['username']?> <br>
-        Password :  <?= $row['password']?> <br>
-        Nama :  <?= $row['nama']?> <br>
-        NIS : <?= $row['nis']?> <br>
-        Alamat : <?= $row['alamat']?>
-    </h3>
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-block">
+                                <form method="post" action="" enctype="multipart/form-data" class="form-horizontal form-material">
+                                    <div class="form-group">
+                                        <label class="col-md-6">Username</label>
+                                        <div class="col-md-6">
+                                            <input type="text" value="<?php echo $row['username'];?>" class="form-control form-control-line" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6">Password</label>
+                                        <div class="col-md-6">
+                                            <input type="text" value="<?php echo $row['password'];?>" class="form-control form-control-line" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nama</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $row['nama'];?>" class="form-control form-control-line" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Nomor Induk Siswa</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $row['nis'];?>" class="form-control form-control-line" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Alamat</label>
+                                        <div class="col-md-12">
+                                            <input type="text" value="<?php echo $row['alamat'];?>" class="form-control form-control-line" readonly>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

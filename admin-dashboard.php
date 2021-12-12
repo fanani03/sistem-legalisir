@@ -187,8 +187,7 @@ if (isset($_POST["cari"])) {
                         <h3 class="text-themecolor">Dashboard</h3>
                     </div>
                     <div class="col-md-7 col-4 align-self-center">
-                        <form action="" method="POST">
-                            <a href="admin-logout.php" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Logout</a>
+                        <a href="admin-logout.php" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">Logout</a>
                     </div>
                 </div>
                 <!-- ============================================================== -->

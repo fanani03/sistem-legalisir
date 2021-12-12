@@ -113,8 +113,6 @@ if ( isset($_POST["login"]) ) {
             <!-- Row -->
             <div class="row">
                 <!-- Column -->
-                <div class="col-lg-4 col-md-2"></div>
-
                 <div class="col-lg-4 col-sm-6" style="margin:auto; padding-top: 5%;">
                     <div class="card">
                         <div class="card-block">
@@ -142,8 +140,6 @@ if ( isset($_POST["login"]) ) {
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-2"></div>
             </div>
             <!-- ============================================================== -->
             <!-- End Page Content -->
