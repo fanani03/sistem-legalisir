@@ -228,6 +228,12 @@ $d = mysqli_fetch_array($data_trans);
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="nosertif" class="col-md-12">Nomor Sertifikat</label>
+                                        <div class="col-md-12">
+                                            <input type="text" name="nosertif" id="nosertif" placeholder="Masukkan Nomor Sertifikat" class="form-control form-control-line">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12">Pilih File</label>
                                         <div class="col-md-12">
                                             <input type="file" name="berkas" id="" class="form-control form-control-line">

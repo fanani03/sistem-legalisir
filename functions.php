@@ -146,15 +146,16 @@ function update($data){
     $nis = $data["nis"];
     $idtrans = $data["idtrans"];
     $namaFile = $data["namaFile"];
-    // $nosertif = $data["nosertif"];
+    $nosertif = $data["nosertif"];
+
     $berkas = upload_simpan();
     if ( !$berkas) {
         return false;
     }
-    $src = mysqli_query($koneksi, "SELECT max(id_simpan) AS idmax FROM tbl_simpan");
-    $srcMax = mysqli_fetch_array($src);
-    $srcMaxNext = (int)$srcMax['idmax'] + 1;
-    $nosertif = $nis.$srcMaxNext.substr(getdate()['0'], -6);
+    // $src = mysqli_query($koneksi, "SELECT max(id_simpan) AS idmax FROM tbl_simpan");
+    // $srcMax = mysqli_fetch_array($src);
+    // $srcMaxNext = (int)$srcMax['idmax'] + 1;
+    // $nosertif = $nis.$srcMaxNext.substr(getdate()['0'], -6);
     // echo $nosertif;
     $edit_simpan = mysqli_query($koneksi, "INSERT INTO tbl_simpan
     VALUES
