@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2021 at 06:48 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Dec 13, 2021 at 11:28 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -63,10 +64,11 @@ CREATE TABLE `tbl_simpan` (
 --
 
 INSERT INTO `tbl_simpan` (`id_simpan`, `nis`, `id_transaksi`, `nama_file`, `no_sertifikat`, `berkas`) VALUES
-(60, 2003, 41, 'Ijazah 2', '20031935326', 'tugas reviewnya fanani.docx'),
-(61, 2001, 44, 'SKHUN', '200161935446', 'avatar-png-11554021661asazhxmdnu.png'),
-(62, 2003, 40, 'Ijazah', '200362984076', 'WhatsApp Image 2021-12-08 at 16.22.19.jpeg'),
-(63, 2002, 42, 'SKHUN', '200263985403', '2003 - IMG-20211022-WA0098.jpg');
+(60, 2001, 41, 'Ijazah', '20031935326', 'ijazah fanani.pdf'),
+(62, 2003, 40, 'SKCK', '200362984076', 'skck.docx'),
+(63, 2003, 42, 'SKHUN', '200263985403', '2003 - SKHUN.pdf'),
+(65, 2002, 43, 'Ijazah', '200265326563', '2002 - ijazah.pdf'),
+(67, 2002, 54, 'SKHUN', '200411100142', 'Yoga Tirta - skhun yoga.pdf');
 
 -- --------------------------------------------------------
 
@@ -88,13 +90,10 @@ CREATE TABLE `tbl_transaksi` (
 --
 
 INSERT INTO `tbl_transaksi` (`id_transaksi`, `nis`, `nama`, `nama_file`, `status`, `berkas`) VALUES
-(39, 2003, 'Teguh Budi', 'SKHUN', 'pending', 'data.png'),
-(40, 2003, 'Teguh Budi', 'Ijazah', 'selesai', 'Penjelasan PPT Jarkom.docx'),
-(41, 2003, 'Teguh Budi', 'Ijazah 2', 'selesai', '10.1109@ICESC48915.2020.9155846.en.id.pdf'),
-(42, 2002, 'Yoga Tirta', 'SKHUN', 'selesai', 'nadir2018.en.id.pdf'),
-(43, 2002, 'Yoga Tirta', 'Ijazah', 'pending', 'IMG-20211022-WA0098.jpg'),
-(44, 2001, 'Ahmad Fanani', 'SKHUN', 'selesai', 'PPT PAI KEL.10.pptx'),
-(45, 2001, 'Ahmad Fanani', 'Ijazah', 'pending', '5_6334478094698546335.xlsx');
+(54, 2002, 'Yoga Tirta', 'SKHUN', 'selesai', 'skhun yoga.pdf'),
+(57, 2003, 'Teguh Budi', 'Laporan', 'proses', 'laporan teguh.pdf'),
+(58, 2002, 'Yoga Tirta', 'Ijazah', 'pending', 'ijazah yoga.pdf'),
+(59, 2001, 'Ahmad Fanani', 'Proposal', 'tolak', 'proposal fanani.pdf');
 
 -- --------------------------------------------------------
 
@@ -117,8 +116,7 @@ CREATE TABLE `tbl_user` (
 INSERT INTO `tbl_user` (`nis`, `username`, `password`, `nama`, `alamat`) VALUES
 (2001, 'fanani', '123', 'Ahmad Fanani', 'Jombang'),
 (2002, 'yoga', '123', 'Yoga Tirta', 'Mojokerto'),
-(2003, 'teguh', '123', 'Teguh Budi', 'Lamongan'),
-(2004, 'nicola', '123', 'Nicola Yanni', 'Sidoarjo');
+(2003, 'teguh', '123', 'Teguh Budi', 'Lamongan');
 
 --
 -- Indexes for dumped tables
@@ -164,13 +162,13 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_simpan`
 --
 ALTER TABLE `tbl_simpan`
-  MODIFY `id_simpan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_simpan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tbl_transaksi`
 --
 ALTER TABLE `tbl_transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Constraints for dumped tables
