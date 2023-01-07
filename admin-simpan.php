@@ -16,7 +16,7 @@ if (!isset($_SESSION["login"]) ) {
 
 require 'functions.php';
 
-$koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
+$koneksi = mysqli_connect("localhost", "root", "", "legalisir");
 
 $data = query("SELECT tbl_simpan.*, tbl_user.nama
                     FROM tbl_simpan INNER JOIN tbl_user ON

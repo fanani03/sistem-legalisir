@@ -1,7 +1,7 @@
 <?php
 
 // koneksi ke database  dengan parameter nama host, username, paswd, nama dabatase
-$koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
+$koneksi = mysqli_connect("localhost", "root", "", "legalisir");
 
 // proses mengambil tiap isi di database
 function query($query) {

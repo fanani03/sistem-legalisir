@@ -16,7 +16,7 @@ if (!isset($_SESSION["login"]) ) {
 
 require 'functions.php';
 
-$koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
+$koneksi = mysqli_connect("localhost", "root", "", "legalisir");
 
 if ( isset($_POST["simpan"]) ) {
     if (update($_POST)) {

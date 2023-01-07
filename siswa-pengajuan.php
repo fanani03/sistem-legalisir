@@ -13,7 +13,7 @@ $namauser = $_SESSION["logged_in_nama"];
 
 require 'functions.php';
 
-$koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
+$koneksi = mysqli_connect("localhost", "root", "", "legalisir");
 
 if ( isset($_POST["ajukan"]) ) {
 

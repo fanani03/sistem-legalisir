@@ -16,7 +16,7 @@ if (!isset($_SESSION["login"]) ) {
 
 require 'functions.php';
 // koneksi database
-$koneksi = mysqli_connect("localhost", "root", "", "db_sekolah");
+$koneksi = mysqli_connect("localhost", "root", "", "legalisir");
 
 // cek apakah tombol submit sudah ditekan
 if (isset($_POST["submit"])) {
